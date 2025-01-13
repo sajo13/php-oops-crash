@@ -1,17 +1,17 @@
 <?php
 
+// Constructor Property Promotion (CPP) is a feature introduced in PHP 8.0 that allows 
+// you to combine property declaration and constructor initialization into a more concise syntax. 
+// You can declare and initialize class properties directly within the constructor signature, reducing boilerplate code.
+
 class Playlist
 {
-    public $name;
-    public $songs;
+    public function __construct(
+        public string $name,
+        public array $songs
+    ) {}
 
-    public function __construct($name, $songs)
-    {
-        $this->name  = $name;
-        $this->songs = $songs;
-    }
-
-    public function shuffle()
+    public function shuffle(): void
     {
         shuffle($this->songs);
     }
